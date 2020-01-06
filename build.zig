@@ -10,7 +10,7 @@ pub fn build(b: *Builder) void {
     const exe = b.addExecutable("test", "src/test.zig");
     exe.addIncludeDir("src");
     exe.setBuildMode(mode);
-    exe.addCSourceFile("src/test.c", [_][]const u8{ });
+    exe.addCSourceFile("src/test.c", &[_][]const u8{ });
     const run_cmd = exe.run();
 
     const run_step = b.step("run", "Run the app");
